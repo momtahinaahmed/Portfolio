@@ -70,7 +70,7 @@ An internet connection is needed to load the Google Fonts used by the site.
 
 - **Email:** [momtahinaahmed75@gmail.com](mailto:momtahinaahmed75@gmail.com)
 - **LinkedIn:** [linkedin.com/in/momtahinaahmed](https://www.linkedin.com/in/momtahinaahmed/)
-- **GitHub:** [github.com/tahsina07](https://github.com/tahsina07)
+- **GitHub:** [github.com/momtahinaahmed](https://github.com/momtahinaahmed)
 
 ## License
 
