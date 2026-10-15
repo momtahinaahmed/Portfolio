@@ -69,8 +69,8 @@ An internet connection is needed to load the Google Fonts used by the site.
 ## Contact
 
 - **Email:** [momtahinaahmed75@gmail.com](mailto:momtahinaahmed75@gmail.com)
-- **LinkedIn:** [linkedin.com/in/momtahinaahmed](https://www.linkedin.com/in/momtahinaahmed/)
-- **GitHub:** [github.com/momtahinaahmed](https://github.com/momtahinaahmed)
+- **LinkedIn:** [momtahinaahmed](https://www.linkedin.com/in/momtahinaahmed/)
+- **GitHub:** [momtahinaahmed](https://github.com/momtahinaahmed)
 
 ## License
 
