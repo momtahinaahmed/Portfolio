@@ -7,6 +7,12 @@
   var links = navLinks.querySelectorAll("a");
 
   // Mobile menu
+  function closeMenu() {
+    navLinks.classList.remove("open");
+    menuBtn.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  }
+
   menuBtn.addEventListener("click", function () {
     var open = navLinks.classList.toggle("open");
     menuBtn.classList.toggle("open", open);
@@ -14,11 +20,15 @@
   });
 
   links.forEach(function (link) {
-    link.addEventListener("click", function () {
-      navLinks.classList.remove("open");
-      menuBtn.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
-    });
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!nav.contains(e.target)) closeMenu();
   });
 
   // Nav shadow + scroll progress bar
