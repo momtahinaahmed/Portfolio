@@ -21,10 +21,21 @@
     });
   });
 
-  // Nav shadow on scroll
-  window.addEventListener("scroll", function () {
+  // Nav shadow + scroll progress bar
+  var progress = document.getElementById("progress");
+  var ticking = false;
+  function onScroll() {
     nav.classList.toggle("scrolled", window.scrollY > 20);
+    if (progress) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = "scaleX(" + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ")";
+    }
+    ticking = false;
+  }
+  window.addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
   }, { passive: true });
+  onScroll();
 
   // Reveal on scroll
   var revealEls = document.querySelectorAll(".reveal");
