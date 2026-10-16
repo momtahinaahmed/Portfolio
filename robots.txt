@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://momtahinaahmed.vercel.app/sitemap.xml
