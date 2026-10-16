@@ -107,6 +107,72 @@
     if (avatarImg.complete && avatarImg.naturalWidth === 0) showFallback();
   }
 
+  // Spotlight glow follows the cursor
+  document.querySelectorAll(".card, .fact, .cert").forEach(function (el) {
+    el.classList.add("spot");
+    el.addEventListener("pointermove", function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", e.clientX - r.left + "px");
+      el.style.setProperty("--my", e.clientY - r.top + "px");
+    });
+  });
+
+  // Copy email
+  var copyBtn = document.getElementById("copyMail");
+  var copyLabel = document.getElementById("copyLabel");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var email = copyBtn.dataset.email;
+      var done = function () {
+        copyBtn.classList.add("copied");
+        copyLabel.textContent = "Copied to clipboard ✓";
+        setTimeout(function () {
+          copyBtn.classList.remove("copied");
+          copyLabel.textContent = email;
+        }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done, function () { window.location.href = "mailto:" + email; });
+      } else {
+        window.location.href = "mailto:" + email;
+      }
+    });
+  }
+
+  // Spotlight glow follows the cursor
+  document.querySelectorAll(".card, .fact, .cert, .t-item, .stat").forEach(function (el) {
+    el.classList.add("spot");
+    el.addEventListener("pointermove", function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", e.clientX - r.left + "px");
+      el.style.setProperty("--my", e.clientY - r.top + "px");
+    });
+  });
+
+  // Copy email
+  var copyBtn = document.getElementById("copyMail");
+  var copyLabel = document.getElementById("copyLabel");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var email = copyBtn.dataset.email;
+      var done = function () {
+        copyBtn.classList.add("copied");
+        copyLabel.textContent = "Copied to clipboard ✓";
+        setTimeout(function () {
+          copyBtn.classList.remove("copied");
+          copyLabel.textContent = email;
+        }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done, function () { window.location.href = "mailto:" + email; });
+      } else {
+        window.location.href = "mailto:" + email;
+      }
+    });
+  }
+
+
+
   // Footer year
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

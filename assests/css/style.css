@@ -716,6 +716,149 @@ main,
   transform: none;
 }
 
+/* SPOTLIGHT (mouse glow on hover) */
+.spot {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.spot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(167, 139, 250, 0.22), transparent 65%);
+  transition: opacity 0.3s;
+}
+
+.spot:hover::after {
+  opacity: 1;
+}
+
+/* MARQUEE */
+.marquee {
+  overflow: hidden;
+  margin: 10px 0 30px;
+  padding: 16px 0;
+  border-block: 1px solid var(--border);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  width: max-content;
+  animation: scroll 32s linear infinite;
+}
+
+.marquee-track span {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.marquee-track i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--grad);
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* COPY EMAIL */
+.copy-mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 999px;
+  padding: 9px 18px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.copy-mail:hover {
+  color: var(--text);
+  border-color: var(--purple-400);
+}
+
+.copy-mail.copied {
+  color: #34d399;
+  border-color: #34d399;
+}
+
+/* Timeline cards: spotlight without clipping the dots */
+.spot::after {
+  border-radius: inherit;
+}
+
+.t-item.spot {
+  overflow: visible;
+}
+
+.t-item {
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.t-item:hover {
+  border-color: var(--purple-400);
+  transform: translateX(4px);
+}
+
+.fact {
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.fact:hover {
+  transform: translateY(-3px);
+  border-color: var(--purple-400);
+}
+
+/* Stat boxes hover */
+.stat {
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple-400);
+}
+
+.card {
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple-400);
+}
+
+.cert {
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.cert:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple-400);
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero {
